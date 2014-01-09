@@ -1,21 +1,21 @@
-
 from objectpub import ObjectPublisher
 
 class Root(object):
+
+    # The "index" method:
     def __call__(self):
         return '''
-        <form action="welcom">
-            Name: <input type="text" name="name">
-            <input type="submit">
+        <form action="welcome">
+        Name: <input type="text" name="name">
+        <input type="submit">
         </form>
-    '''
+        '''
 
     def welcome(self, name):
         return 'Hello %s!' % name
 
 app = ObjectPublisher(Root())
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     from paste import httpserver
-    httpserver.serve(app, host = '127.0.9.1', port = '8087')
-
+    httpserver.serve(app, host='127.0.0.1', port='8080')
